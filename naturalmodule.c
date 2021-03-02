@@ -4,15 +4,13 @@
 
 
 static PyObject *natural_is_prime(PyObject *self, PyObject *args) {
-    long long *num = NULL;
+    long long num;
 
     if(!PyArg_ParseTuple(args, "L", &num)) {
         return NULL;
     }
-    printf("test\n");
-    for (long i=2; i < pow(*num, 1/2); ++i) {
-        printf("test3");
-        if (*num % i == 0) {
+    for (long i=2; i < pow(num, 0.5); ++i) {
+        if (num % i == 0) {
             Py_RETURN_FALSE;
         }
     }
